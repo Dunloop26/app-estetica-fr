@@ -6,6 +6,9 @@
     "app-estetica-fr": {
       "projectType": "application",
       "schematics": {
+        "@schematics/angular:component": {
+          "skipTests" : true
+        },
         "@schematics/angular:application": {
           "strict": true,
           "skipTests": true
