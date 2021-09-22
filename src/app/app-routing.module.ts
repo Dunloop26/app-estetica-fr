@@ -3,6 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+  {
     path: 'login',
     loadChildren: () =>
       import('./components/public/login/login.module').then(
@@ -10,9 +15,11 @@ const routes: Routes = [
       ),
   },
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    path: 'main',
+    loadChildren: () =>
+      import('./components/public/main-page/main-page.module').then(
+        (m) => m.MainPageModule
+      ),
   },
   {
     path: '**',
