@@ -1,14 +1,19 @@
-<main class="form-container">
-  <h1>Iniciar sesión</h1>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="input-group">
+<main class="container">
+  <h3>Iniciar sesión</h3>
+  <form class="row" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="col s12 input-group">
       <label for="user">Usuario: </label>
-      <input id="user" type="text" formControlName="user"/>
+      <input id="user" type="text" formControlName="user" />
     </div>
-    <div class="input-group">
+    <div class="col s12 input-group">
       <label for="pass">Contraseña: </label>
-      <input id="pass" type="password" formControlName="pass"/>
+      <input id="pass" type="password" formControlName="pass" />
     </div>
-    <button [disabled]="!form.valid" type="submit">Iniciar sesión</button>
+    <div class="section">
+      <button class="col s12 m6 btn red darken-2 white-text waves-effect waves-lighten "
+        [disabled]="!form.valid" type="submit">
+        Iniciar sesión
+      </button>
+    </div>
   </form>
 </main>
