@@ -16,9 +16,8 @@ export class ApiInterceptor implements HttpInterceptor {
   private API_URL = environment.baseUrl;
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const finalUrl = `${this.API_URL}/${request.url}`
     const newRequest = request.clone({
-      url: finalUrl,
+      url: `${this.API_URL}/${request.url}`,
       withCredentials: true,
     })
     return next.handle(newRequest);
