@@ -24,6 +24,7 @@ export class SelectOptionComponent implements OnInit {
 
   onSelectButtonClicked() {
     this.selectClicked.emit();
+    console.log(this.optionElements)
   }
 
 }
