@@ -7,6 +7,7 @@ import { SignInFormComponent } from '../sign-in-form/sign-in-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HostDirective } from '../../../directives/host.directive';
 import { SignUpFormComponent } from '../sign-up-form/sign-up-form.component';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
@@ -14,13 +15,14 @@ import { SignUpFormComponent } from '../sign-up-form/sign-up-form.component';
     LoginComponent,
     SignInFormComponent,
     HostDirective,
-    SignUpFormComponent
+    SignUpFormComponent,
   ],
   imports: [
     CommonModule,
     LoginRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    SharedModule
   ]
 })
 export class LoginModule { }
