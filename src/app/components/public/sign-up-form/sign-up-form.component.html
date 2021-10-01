@@ -1,21 +1,21 @@
 <main class="container">
   <h3>Registrarse</h3>
   <form class="row" [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="col s12 input-group">
-      <label for="user">Usuario: </label>
-      <input id="user" type="text" formControlName="user" />
+    <div class="col s12 input-field">
+      <label for="user">Usuario</label>
+      <input id="user" type="text" formControlName="user"/>
     </div>
-    <div class="col s12 input-group">
-      <label for="email">E-Mail: </label>
-      <input id="email" type="email" formControlName="email" />
+    <div class="col s12 input-field">
+      <label for="email">E-Mail</label>
+      <input id="email" type="email" formControlName="email"/>
     </div>
-    <div class="col s12 input-group">
-      <label for="pass">Contraseña: </label>
-      <input id="pass" type="password" formControlName="pass" />
+    <div class="col s12 input-field">
+      <label for="pass">Contraseña</label>
+      <input id="pass" type="password" formControlName="pass"/>
     </div>
-    <div class="col s12 input-group">
-      <label for="confirmPass">Confirmar contraseña: </label>
-      <input id="confirmPass" type="password" formControlName="confirmPass" />
+    <div class="col s12 input-field">
+      <label for="confirmPass">Confirmar contraseña</label>
+      <input id="confirmPass" type="password" formControlName="confirmPass"/>
     </div>
     <div class="section"><button class="btn amber darken-2 col s12 m6 waves-effect waves-lighten" [disabled]="!form.valid" type="submit">Registrarse</button>
     </div>

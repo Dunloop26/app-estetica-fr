@@ -1,12 +1,12 @@
 <main class="container">
   <h3>Iniciar sesión</h3>
   <form class="row" [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="col s12 input-group">
-      <label for="email">Usuario: </label>
+    <div class="col s12 input-field">
+      <label for="email">Usuario</label>
       <input id="email" type="email" formControlName="email" />
     </div>
-    <div class="col s12 input-group">
-      <label for="password">Contraseña: </label>
+    <div class="col s12 input-field">
+      <label for="password">Contraseña</label>
       <input id="password" type="password" formControlName="password" />
     </div>
     <div class="section">
