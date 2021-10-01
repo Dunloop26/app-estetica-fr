@@ -4,7 +4,7 @@
       <img src="" alt="Logo">
       <a href="/" class="brand-logo black-text">SH Logo</a>
     </div>
-    <div class="right row">
+    <div class="right row" *ngIf="!headerOnly">
       <ul>
         <li><a href="#" (click)="onLogOutClicked()" class="col s12 waves-effect grey-text text-darken-2">Cerrar sesión</a></li>
       </ul>
