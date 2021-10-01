@@ -20,7 +20,11 @@ import { ApiInterceptor } from './interceptors/api.interceptor';
     HttpClientModule,
     CommonModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      easeTime: 500,
+      maxOpened: 5,
+      closeButton: true
+    }),
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
