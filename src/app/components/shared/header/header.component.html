@@ -1,7 +1,13 @@
-<main class="header-container">
-  <div class="page-identity">
-    <img src="" alt="Logo">
-    <h1>SH Logo</h1>
-  </div>
-  <button>Cerrar Sesión</button>
-</main>
+<header class="row">
+  <nav class="nav-wrapper white">
+    <div class="col s6 left">
+      <img src="" alt="Logo">
+      <a href="/" class="brand-logo black-text">SH Logo</a>
+    </div>
+    <div class="right row">
+      <ul>
+        <li><a href="#" (click)="onLogOutClicked()" class="col s12 waves-effect grey-text text-darken-2">Cerrar sesión</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
