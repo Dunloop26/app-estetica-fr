@@ -1,0 +1,11 @@
+article {
+  width: 25em;
+  height: 30em;
+  .container-wrapper {
+    main {
+      flex: 1 0;
+    }
+    width: 25em;
+    height: 30em;
+  }
+}
