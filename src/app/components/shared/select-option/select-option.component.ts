@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-select-option',
@@ -8,6 +8,8 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 export class SelectOptionComponent implements OnInit {
 
   constructor() { }
+
+  @ViewChild('optionsContainer') optionElements : any;
 
   @Output() backClicked = new EventEmitter<void>();
   @Output() selectClicked = new EventEmitter<void>();
