@@ -1,8 +1,11 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
-import { IUser } from '../interfaces/user.interface';
+import { TokenResponse } from '../interfaces/token-response';
+
+import { User } from '../interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -10,15 +13,28 @@ import { IUser } from '../interfaces/user.interface';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  signIn(user: IUser): Observable<IUser | any> {
-    return this.http.post<IUser | any>('signin', JSON.stringify(user), {
+  signIn(user: User): Observable<TokenResponse> {
+    return this.http
+      .post<TokenResponse>('signin', JSON.stringify(user), {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  }
+
+  signUp(user: User): Observable<TokenResponse> {
+    return this.http.post<TokenResponse>('signup', JSON.stringify(user), {
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type' : 'application/json',
       },
     });
   }
 
   isLoggedIn(): boolean {
-    return false;
+    return localStorage.getItem('token') != undefined;
+  }
+
+  logOut() {
+    localStorage.removeItem('token')
   }
 }
