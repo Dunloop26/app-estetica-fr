@@ -20,7 +20,7 @@ import { SignUpFormComponent } from '../sign-up-form/sign-up-form.component';
     CommonModule,
     LoginRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class LoginModule { }
