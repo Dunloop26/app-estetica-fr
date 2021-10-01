@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
 
   onLogOutClicked() {
     this.auth.logOut();
-    this.router.navigate(['/']);
+    this.router.navigateByUrl('/');
     console.log('Login out!', localStorage.getItem('token'))
   }
 }
