@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-select-option',
@@ -9,7 +9,21 @@ export class SelectOptionComponent implements OnInit {
 
   constructor() { }
 
+  @Output() backClicked = new EventEmitter<void>();
+  @Output() selectClicked = new EventEmitter<void>();
+
+  @Input() subtitle = "subtitle";
+  @Input() title = "title";
+
   ngOnInit(): void {
+  }
+
+  onBackButtonClicked() {
+    this.backClicked.emit();
+  }
+
+  onSelectButtonClicked() {
+    this.selectClicked.emit();
   }
 
 }
