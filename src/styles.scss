@@ -1,12 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~ngx-toastr/toastr';
+@import "~ngx-toastr/toastr";
+
+html,
+body {
+  background-color: white;
+}
 
 #toast-container {
   .ngx-toastr {
-    box-shadow: 0 0 6px rgba(0,0,0,0.2);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 
     &:hover {
-      box-shadow: 0 0 6px rgba(0,0,0,0.4);
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
     }
   }
 }
