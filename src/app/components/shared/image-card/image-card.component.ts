@@ -9,6 +9,7 @@ export class ImageCardComponent implements OnInit {
 
   @Input() title : string = "Title";
   @Input() subtitle: string = "Subtitle";
+  @Input() selected: boolean = false;
 
   constructor() { }
 
