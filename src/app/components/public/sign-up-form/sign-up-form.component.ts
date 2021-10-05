@@ -3,8 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 import { User } from 'src/app/interfaces/user.interface';
+import { TokenResponse } from 'src/app/interfaces/token-response';
 
 @Component({
   selector: 'app-sign-up-form',
@@ -15,7 +17,8 @@ export class SignUpFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private toastr: ToastrService,
-    private auth: AuthService
+    private auth: AuthService,
+    private router: Router
   ) {}
 
   form: FormGroup = this.fb.group({
@@ -27,12 +30,15 @@ export class SignUpFormComponent implements OnInit {
 
   onSubmit(): void {
     // Compruebo que la contraseña coincida
+    if (!this.form.valid) return;
+
     if (this.passwordMatches()) {
       this.toastr.info('Registrando usuario...');
       this.auth.signUp(this.getUserFromForm()).subscribe(
-        (data) => {
-          console.log(data);
+        (data: TokenResponse) => {
+          localStorage.setItem('token', data.token)
           this.toastr.success('Registro exitoso');
+          this.router.navigateByUrl('home');
         },
         (error) => console.error(error)
       );
