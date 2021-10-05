@@ -15,8 +15,4 @@ export class ImageCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  onCardClick() {
-    console.log('Clicked')
-  }
 }

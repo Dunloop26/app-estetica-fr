@@ -16,6 +16,7 @@ export class SelectOptionComponent implements OnInit {
 
   @Input() subtitle = "subtitle";
   @Input() title = "title";
+  @Input() selectDisabled = false;
 
   ngOnInit(): void {
   }
@@ -26,7 +27,6 @@ export class SelectOptionComponent implements OnInit {
 
   onSelectButtonClicked() {
     this.selectClicked.emit();
-    console.log(this.optionElements)
   }
 
 }

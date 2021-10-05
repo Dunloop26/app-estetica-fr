@@ -18,7 +18,7 @@
   </article>
   <div class="section"></div>
   <footer class="valign-wrapper col s12">
-    <button
+    <button [ngClass]="{'disabled':selectDisabled}" [disabled]="selectDisabled"
       class="btn grey waves-effect margin-auto"
       (click)="onSelectButtonClicked()"
     >

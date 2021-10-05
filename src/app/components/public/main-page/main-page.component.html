@@ -2,10 +2,10 @@
 <main class="container">
   <h1 class="hide-on-med-and-down">Bienvenido</h1>
   <div class="section"></div>
-  <app-select-option
+  <app-select-option [selectDisabled]="selectDisabled" (selectClicked)="validateSelection()"
     title="Selecciona tu servicio"
     subtitle="Belleza a tu alcance"
   >
-    <app-image-card></app-image-card>
+    <app-image-card [title]="card?.title ?? ''" [subtitle]="card?.subtitle ?? ''"  *ngFor="let card of cards;index as i" (click)="onCardClick(i)" [selected]="i == selectedIdx"></app-image-card>
   </app-select-option>
 </main>
