@@ -1,7 +1,7 @@
 <section class="row flex flex-col">
   <header class="row col s12 valign-wrapper">
     <div class="left">
-      <button
+      <button [ngClass]="{'hide':!showBackButton}"
         class="btn-floating btn-large amber waves-effect waves-light z-depth-1"
         (click)="onBackButtonClicked()"
       >

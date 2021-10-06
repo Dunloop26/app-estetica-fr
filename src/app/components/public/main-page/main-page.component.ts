@@ -1,43 +1,67 @@
 import { Component, OnInit } from '@angular/core';
 import { CardInfo } from 'src/app/interfaces/card-info';
 
-type SelectionData = {selectedService: CardInfo | undefined, horario: "D" | "N" | "T"}
+type SelectionData = {
+  selectedService: CardInfo | undefined;
+  horario: string | undefined;
+};
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.scss']
+  styleUrls: ['./main-page.component.scss'],
 })
 export class MainPageComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  cards: Array<CardInfo> = [
+    { title: 'Servicio 1', subtitle: '$150.000.00' },
+    { title: 'Servicio 2', subtitle: '$250.000.00' },
+    { title: 'Servicio 3', subtitle: '$275.000.00' },
+    { title: 'Servicio 4', subtitle: '$300.000.00' },
+  ];
 
-
-  cards : Array<CardInfo> = [
-    {title: "Servicio 1", subtitle: "$150.000.00"},
-    {title: "Servicio 2", subtitle: "$250.000.00"},
-    {title: "Servicio 3", subtitle: "$275.000.00"},
-    {title: "Servicio 4", subtitle: "$300.000.00"},
-  ]
+  horarios: Array<{ nombre: string; codigo: string }> = [
+    { nombre: 'Jornada Diurna', codigo: 'D' },
+    { nombre: 'Jornada Tarde', codigo: 'T' },
+    { nombre: 'Jornada Nocturna', codigo: 'N' },
+  ];
 
   selectDisabled: boolean = true;
-  selectedIdx = -1;
+  selectedCardIdx = -1;
+  selectedHorarioIdx = -1;
+  stage = 0;
 
-  data : SelectionData = {
-    selectedService: undefined,
-    horario: "D"
+  data: SelectionData = {
+    selectedService:  undefined,
+    horario: undefined,
+  };
+
+  onCardClick(idx: number) {
+    this.selectedCardIdx = idx;
+    this.selectDisabled = this.selectedCardIdx == -1;
   }
 
-  onCardClick (idx : number) {
-    this.selectedIdx = idx;
-    this.selectDisabled = this.selectedIdx == -1;
+  onHorarioClick(idx: number) {
+    this.selectedHorarioIdx = idx;
+    this.selectDisabled = this.selectedHorarioIdx == -1;
   }
 
-  validateSelection() : void {
-    this.data.selectedService = this.cards[this.selectedIdx]
+  next() {
+    this.stage++;
+    this.selectDisabled = true;
   }
 
-  ngOnInit(): void {
+  previous() {
+    this.stage--;
+    if (this.stage < 0) this.stage = 6;
+    this.selectDisabled = true;
   }
 
+  validateSelection(): void {
+    this.data.selectedService = this.cards[this.selectedCardIdx];
+    this.data.horario = this.horarios[this.selectedHorarioIdx].codigo;
+  }
+
+  ngOnInit(): void {}
 }

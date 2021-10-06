@@ -17,6 +17,7 @@ export class SelectOptionComponent implements OnInit {
   @Input() subtitle = "subtitle";
   @Input() title = "title";
   @Input() selectDisabled = false;
+  @Input() showBackButton = true;
 
   ngOnInit(): void {
   }
